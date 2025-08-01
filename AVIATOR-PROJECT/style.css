@@ -782,7 +782,6 @@ body {
     color: #3b50c6;
     text-decoration: none;
     }
-
 /* --- Styles for the "Confirmation" page --- */
 .confirmation-container {
     background-color: #1a1a2b;
@@ -895,7 +894,7 @@ body {
 
 .generate-btn.green:hover {
     background-color: #27ae60;
-    }
+}
 
 .close-btn {
     font-size: 1.5em;
