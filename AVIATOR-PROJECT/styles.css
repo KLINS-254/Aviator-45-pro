@@ -183,3 +183,24 @@ body {
 .link-text a:hover {
   text-decoration: underline;
   }
+/* ... existing CSS ... */
+
+.btn-duration {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: 1px solid #4a647d;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-duration:hover {
+    background-color: #3d5066;
+}
+
+.btn-duration.active {
+    background-color: #3498db;
+    border-color: #3498db;
+}
