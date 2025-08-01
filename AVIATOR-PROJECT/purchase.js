@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const durationButtons = document.querySelectorAll('.duration-btn');
     const paymentAmount = document.querySelector('.payment-amount');
+    const purchaseLink = document.getElementById('purchase-link');
 
     durationButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -13,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update the displayed price
             const price = button.getAttribute('data-price');
             paymentAmount.textContent = `Sh. ${price}`;
+
+            // Update the purchase link to include the new price
+            purchaseLink.href = `confirmation.html?price=${price}`;
         });
     });
 });
