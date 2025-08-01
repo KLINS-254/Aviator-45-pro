@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Odds</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <img src="path/to/your/logo.png" alt="Aviator Predictor Logo">
+        <h1 class="app-title">Aviator Predictor</h1>
+      </a>
+      <div class="header-icons">
+        <button class="icon-button dark-mode-toggle" aria-label="Toggle dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="icon-button menu-toggle" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="card">
+      <h2 class="card-title">Access Odds for Aviator</h2>
+      <div class="form-group">
+        <input type="text" id="unlockCodeInput" placeholder="Enter Unlock Code">
+        <p id="errorMessage" class="error-message">Incorrect code. Please try again.</p>
+      </div>
+      <button class="btn btn-blue" id="unlockButton">Unlock Odds</button>
+      <p class="link-text" style="margin-top: 20px;">
+        Don't have a code? <a href="payment.html">Get it here</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+  
