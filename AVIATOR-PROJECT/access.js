@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         errorPopup.classList.add('show');
         setTimeout(() => {
             errorPopup.classList.remove('show');
-        }, 2300); // 2.3 seconds
+        }, 3000);
     }
 
     closePopupBtn.addEventListener('click', () => {
