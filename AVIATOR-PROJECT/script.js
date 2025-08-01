@@ -1,45 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Access Odds</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+document.addEventListener('DOMContentLoaded', () => {
 
-  <header class="header">
-    <div class="header-content">
-      <a href="index.html" class="logo">
-        <img src="path/to/your/logo.png" alt="Aviator Predictor Logo">
-        <h1 class="app-title">Aviator Predictor</h1>
-      </a>
-      <div class="header-icons">
-        <button class="icon-button dark-mode-toggle" aria-label="Toggle dark mode">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-        <button class="icon-button menu-toggle" aria-label="Open menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+    // Logic for the access.html page
+    const unlockButton = document.getElementById('unlockButton');
+    const unlockCodeInput = document.getElementById('unlockCodeInput');
+    const errorMessage = document.getElementById('errorMessage');
 
-  <main class="main-content">
-    <div class="card">
-      <h2 class="card-title">Access Odds for Aviator</h2>
-      <div class="form-group">
-        <input type="text" id="unlockCodeInput" placeholder="Enter Unlock Code">
-        <p id="errorMessage" class="error-message">Incorrect code. Please try again.</p>
-      </div>
-      <button class="btn btn-blue" id="unlockButton">Unlock Odds</button>
-      <p class="link-text" style="margin-top: 20px;">
-        Don't have a code? <a href="payment.html">Get it here</a>
-      </p>
-    </div>
-  </main>
+    if (unlockButton && unlockCodeInput && errorMessage) {
+        unlockButton.addEventListener('click', () => {
+            const code = unlockCodeInput.value.trim().toUpperCase();
 
-  <script src="script.js"></script>
-</body>
-</html>
-  
+            if (code === 'KLINS') {
+                // Correct code, redirect to the "Sad News" page
+                window.location.href = 'sad_news.html';
+            } else {
+                // Incorrect code, show the error message
+                errorMessage.style.display = 'block';
+            }
+        });
+    }
+
+    // You can add more JavaScript logic here for other pages as we build them.
+    // The "if" check ensures the code only runs on the page where the elements exist.
+
+});
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ... existing script for access.html ...
+
+    // Logic for the payment.html page
+    const durationButtons = document.querySelectorAll('.btn-duration');
+    const paymentAmountSpan = document.getElementById('paymentAmount');
+
+    if (durationButtons.length > 0 && paymentAmountSpan) {
+        // Define the prices for each duration
+        const prices = {
+            '1hour': 'Sh. 250',
+            '3hours': 'Sh. 475',
+            '6hours': 'Sh. 700'
+        };
+
+        // Add 'active' class to the 3-hour button by default
+        const defaultButton = document.querySelector('[data-duration="3hours"]');
+        if (defaultButton) {
+            defaultButton.classList.add('active');
+        }
+
+        durationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove 'active' class from all buttons
+                durationButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add 'active' class to the clicked button
+                button.classList.add('active');
+
+                // Update the payment amount based on the data-duration attribute
+                const duration = button.dataset.duration;
+                paymentAmountSpan.textContent = prices[duration];
+            });
+        });
+    }
+
+});
