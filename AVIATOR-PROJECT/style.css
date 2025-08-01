@@ -577,9 +577,7 @@ body {
     transform: translateX(-50%) translateY(0);
 }
 
-.error-text {
-    font-weight: bold;
-}
+.error-text { font-weight: bold; text-align: center; /* Add this line */ display: block; /* Add this line to ensure it takes full width */ }
 
 .close-btn {
     font-size: 1.5em;
