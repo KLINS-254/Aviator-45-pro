@@ -204,3 +204,57 @@ body {
     background-color: #3498db;
     border-color: #3498db;
 }
+
+/* ... existing CSS ... */
+
+/* Payment Confirmation Page specific styles */
+.warning-box {
+    background-color: #3d2f34;
+    border: 1px solid #e74c3c;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #e74c3c;
+    font-size: 0.9rem;
+}
+
+.warning-box strong {
+    font-size: 1rem;
+}
+
+.instructions {
+    list-style-type: none;
+    counter-reset: my-awesome-counter;
+    padding: 0;
+}
+
+.instructions li {
+    counter-increment: my-awesome-counter;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 40px;
+    line-height: 1.2;
+}
+
+.instructions li::before {
+    content: counter(my-awesome-counter);
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.instructions small {
+    color: #bdc3c7;
+    display: block;
+    margin-top: 5px;
+}
