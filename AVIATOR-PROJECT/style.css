@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #12121e; /* Main dark background */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #1a1a2b;
+    padding: 15px 20px;
+    border-bottom: 1px solid #2a2a3b;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-weight: normal;
+    margin: 0;
+    color: #e74c3c;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.site-selection {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1em;
+    color: #999999;
+    margin-bottom: 40px;
+}
+
+.site-grid {
+    display: flex; /* Changed from grid to flexbox to center the single card */
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.site-card {
+    background-color: #1a1a2b;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #2a2a3b;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 250px; /* Fixed width for the single card */
+}
+
+.site-card:hover {
+    background-color: #2a2a3b;
+}
+
+.site-logo {
+    max-width: 80px;
+    margin-bottom: 10px;
+}
+
+.site-name {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+/* Specific styling for the Aviator card */
+.aviator {
+    color: #e74c3c; /* Red text */
+}
+
+.site-description {
+    font-size: 0.9em;
+    color: #cccccc;
+    margin-top: 10px;
+}
+
+.note-box {
+    background-color: #1a1a2b;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #2a2a3b;
+}
+
+.note-icon {
+    background-color: #555566;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.note-text {
+    flex: 1;
+    margin: 0;
+    color: #bbbbbb;
+    font-size: 0.9em;
+}
+
+.note-link {
+    color: #3498db;
+    text-decoration: none;
+    margin-left: 20px;
+}
