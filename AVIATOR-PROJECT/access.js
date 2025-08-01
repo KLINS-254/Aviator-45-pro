@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorPopup = document.getElementById('error-popup');
     const closePopupBtn = errorPopup.querySelector('.close-btn');
 
-    const SECRET_CODE = "KLINS";
+    const SECRET_CODE = "1234";
 
     function showErrorPopup(message) {
         errorPopup.querySelector('.error-text').textContent = message;
         errorPopup.classList.add('show');
         setTimeout(() => {
             errorPopup.classList.remove('show');
-        }, 2300); // This is the updated delay in milliseconds (2.3 seconds)
+        }, 2300); // 2.3 seconds
     }
 
     closePopupBtn.addEventListener('click', () => {
