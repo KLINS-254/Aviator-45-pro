@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         errorPopup.classList.add('show');
         setTimeout(() => {
             errorPopup.classList.remove('show');
-        }, 3000);
+        }, 2300); // This is the updated delay in milliseconds (2.3 seconds)
     }
 
     closePopupBtn.addEventListener('click', () => {
