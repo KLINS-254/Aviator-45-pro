@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorPopup = document.getElementById('error-popup');
     const closePopupBtn = errorPopup.querySelector('.close-btn');
 
-    const SECRET_CODE = "1234";
+    const SECRET_CODE = "KLINS";
 
     function showErrorPopup(message) {
         errorPopup.querySelector('.error-text').textContent = message;
