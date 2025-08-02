@@ -45,6 +45,10 @@
             color: #a0a0a0;
             margin-bottom: 30px;
         }
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
         .card {
             background-color: #1c2738;
             border-radius: 10px;
@@ -52,15 +56,16 @@
             margin: 10px 0;
             width: 300px;
             border: 1px solid #334455;
-            text-align: center; /* Center content horizontally */
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            cursor: pointer;
         }
         .card .aviator-logo {
-            height: 120px; /* Adjust size as needed */
+            height: 120px;
             width: auto;
-            margin-bottom: 15px; /* Spacing between logo and text */
+            margin-bottom: 15px;
         }
         .card h2 {
             font-size: 20px;
@@ -107,11 +112,13 @@
         <h2 class="title">Pick your Site</h2>
         <p class="subtitle">Note that the algorithm may have some differences for each site, please pick the right site.</p>
 
-        <div class="card">
-            <img class="aviator-logo" src="logo.png" alt="Aviator Logo">
-            <h2>Aviator</h2>
-            <p>If you can dream it, you can win it. Click here to get aviator predictions. Win big!</p>
-        </div>
+        <a href="access_odds.html" class="card-link">
+            <div class="card">
+                <img class="aviator-logo" src="logo.png" alt="Aviator Logo">
+                <h2>Aviator</h2>
+                <p>If you can dream it, you can win it. Click here to get aviator predictions. Win big!</p>
+            </div>
+        </a>
 
         <div class="note">
             <h3>Note</h3>
