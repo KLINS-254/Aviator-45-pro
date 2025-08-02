@@ -136,6 +136,9 @@
                 setTimeout(() => {
                     // Simulate the "Unlocking" process
                     unlockButton.textContent = 'Unlocking';
+                    
+                    // Clear the input field before redirecting
+                    unlockCodeInput.value = '';
 
                     // After a short delay, redirect to the next page
                     setTimeout(() => {
