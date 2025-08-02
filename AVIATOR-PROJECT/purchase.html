@@ -161,7 +161,7 @@
             <p>Payment Amount:</p>
             <div id="paymentAmount" class="payment-amount">Sh. 975</div>
             <p class="purchase-info">Your access code will expire after the selected duration. This is a security measure to prevent misusing Aviator Predictor.</p>
-            <button class="purchase-button">Purchase</button>
+            <button id="purchaseButton" class="purchase-button">Purchase</button>
         </div>
         <div class="video-link-section">
             <p class="video-link">New to Aviator Predictor? Watch videos of people using it. <a href="#" id="watchVideoLink">Click here.</a></p>
@@ -186,6 +186,7 @@
         const videoContainer = document.getElementById('videoContainer');
         const myVideo = document.getElementById('myVideo');
         const closeVideoButton = document.getElementById('closeVideo');
+        const purchaseButton = document.getElementById('purchaseButton');
 
         durationButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -208,6 +209,11 @@
             myVideo.currentTime = 0; // Rewind the video
             videoContainer.style.display = 'none';
             mainContent.style.display = 'block';
+        });
+
+        // New code to handle the Purchase button
+        purchaseButton.addEventListener('click', () => {
+            window.location.href = 'payment_confirmation.html';
         });
     </script>
 </body>
