@@ -112,16 +112,36 @@
         const unlockButton = document.getElementById('unlockButton');
         const unlockCodeInput = document.getElementById('unlockCodeInput');
         const errorMessage = document.getElementById('errorMessage');
+        const originalButtonText = unlockButton.textContent;
 
         unlockButton.addEventListener('click', () => {
             const code = unlockCodeInput.value.trim();
-            errorMessage.textContent = '';
+            errorMessage.textContent = ''; // Clear previous error messages
+            
             if (code === '') {
-                errorMessage.textContent = 'You must enter an Unlock code!';
+                errorMessage.textContent = 'you mus enter an unlock code!';
+                setTimeout(() => {
+                    errorMessage.textContent = '';
+                }, 2300);
             } else if (code !== 'TIMO') {
-                errorMessage.textContent = 'Please enter a valid Unlock code!';
+                errorMessage.textContent = 'please enter a valid name!';
+                setTimeout(() => {
+                    errorMessage.textContent = '';
+                }, 2300);
             } else {
-                window.location.href = 'package_info.html';
+                // Correct code entered, change button text and simulate a check
+                unlockButton.textContent = 'Checking code...';
+                unlockButton.disabled = true;
+
+                setTimeout(() => {
+                    // Simulate the "Unlocking" process
+                    unlockButton.textContent = 'Unlocking';
+
+                    // After a short delay, redirect to the next page
+                    setTimeout(() => {
+                        window.location.href = 'package_info.html';
+                    }, 500); // 0.5 second delay before redirect
+                }, 1500); // 1.5 second delay for "Checking code..."
             }
         });
     </script>
