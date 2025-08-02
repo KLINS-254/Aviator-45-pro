@@ -205,6 +205,9 @@
         const mpesaCodeInput = document.getElementById('mpesaCodeInput');
         const errorMessage = document.getElementById('errorMessage');
 
+        // This is a placeholder for a "correct" Mpesa code for demonstration purposes.
+        const correctCode = 'CORRECT123';
+
         generateButton.addEventListener('click', () => {
             const code = mpesaCodeInput.value.trim();
             errorMessage.textContent = ''; // Clear any previous message
@@ -213,17 +216,22 @@
                 errorMessage.textContent = 'Please enter a valid Mpesa code';
                 setTimeout(() => {
                     errorMessage.textContent = '';
-                }, 2300); // Disappear after 2.3 seconds
+                }, 2300);
+            } else if (code !== correctCode) {
+                errorMessage.textContent = 'Wrong Mpesa code, Please try again';
+                setTimeout(() => {
+                    errorMessage.textContent = '';
+                }, 2300);
             } else {
-                // Change button text and disable it
+                // This block runs if the code is 'CORRECT123'
                 generateButton.textContent = 'Generating Unlock code...';
                 generateButton.disabled = true;
                 
-                // Simulate a delay and then change the button back
                 setTimeout(() => {
+                    // This is where you would handle the successful code submission
                     generateButton.textContent = 'Generate Unlock Code';
                     generateButton.disabled = false;
-                }, 3000); // Wait 3 seconds before resetting
+                }, 3000);
             }
         });
     </script>
