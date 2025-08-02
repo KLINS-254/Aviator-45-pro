@@ -87,10 +87,24 @@ body {
 }
 
 /* General UI Elements */
+/* This is the new style to center the heading and note */
+.selection-container {
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.main-heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .heading-note {
   color: #bdc3c7;
   font-size: 0.9rem;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .info-note {
@@ -182,8 +196,7 @@ body {
 
 .link-text a:hover {
   text-decoration: underline;
-  }
-/* ... existing CSS ... */
+}
 
 .btn-duration {
     background-color: #34495e;
@@ -204,8 +217,6 @@ body {
     background-color: #3498db;
     border-color: #3498db;
 }
-
-/* ... existing CSS ... */
 
 /* Payment Confirmation Page specific styles */
 .warning-box {
