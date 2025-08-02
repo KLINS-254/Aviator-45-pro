@@ -66,9 +66,9 @@
         .error-message {
             color: #e74c3c;
             font-size: 14px;
-            height: 20px; /* Reserve space to prevent layout shift */
+            height: 20px;
             margin-bottom: 10px;
-            display: block; /* To ensure it takes up space */
+            display: block;
         }
         .unlock-button {
             width: 100%;
@@ -102,7 +102,7 @@
     </div>
     <div class="content">
         <h2 class="title">Access Odds for Aviator</h2>
-        <input type="text" id="unlockCodeInput" class="input-field" placeholder="Enter Unlock Code">
+        <input type="password" id="unlockCodeInput" class="input-field" placeholder="Enter Unlock Code">
         <span id="errorMessage" class="error-message"></span>
         <button id="unlockButton" class="unlock-button">Unlock Odds</button>
         <p class="link-text">Don't have a code? <a href="#">Get it here</a></p>
@@ -115,13 +115,14 @@
 
         unlockButton.addEventListener('click', () => {
             const code = unlockCodeInput.value.trim();
+            
+            errorMessage.textContent = ''; // Clear previous error messages
 
             if (code === '') {
-                errorMessage.textContent = 'you must enter an unlock code!';
+                errorMessage.textContent = 'you mus enter an unlock code!';
             } else if (code !== 'TIMO') {
                 errorMessage.textContent = 'please enter a valid Unlock code!';
             } else {
-                // Correct code, redirect to the new page
                 window.location.href = 'package_info.html';
             }
         });
