@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Access Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0c1524;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            width: 100%;
+            background-color: #121f30;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: normal;
+        }
+        .content {
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: #1c2738;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+        }
+        .duration-options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .duration-button {
+            background-color: #2e3b4d;
+            color: #ffffff;
+            border: 1px solid #334455;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 30%;
+            font-weight: bold;
+        }
+        .duration-button.active {
+            background-color: #2e8b57;
+            border-color: #2e8b57;
+        }
+        .duration-button:hover {
+            background-color: #3cb371;
+            border-color: #3cb371;
+        }
+        .payment-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .payment-amount {
+            width: 100%;
+            background-color: #121f30;
+            border: 1px solid #334455;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .security-text {
+            font-size: 12px;
+            color: #a0a0a0;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+        .purchase-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #2e8b57;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        .footer-text {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+        .footer-text a {
+            color: #2e8b57;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="jogo.png" alt="Aviator Predictor Logo">
+        <h1>Aviator Predictor</h1>
+    </div>
+
+    <div class="content">
+        <h2 class="title">Access Aviator Odds</h2>
+        <p class="subtitle">Purchase your access code to unlock Aviator Predictor. Choose the number of hours your code will be active.</p>
+
+        <div class="card">
+            <label>Select Duration</label>
+            <div class="duration-options">
+                <button class="duration-button active" id="1hour">1 Hour</button>
+                <button class="duration-button" id="3hours">3 Hours</button>
+                <button class="duration-button" id="6hours">6 Hours</button>
+            </div>
+
+            <label class="payment-label">Payment Amount:</label>
+            <input type="text" id="paymentAmount" class="payment-amount" value="Sh. 975" readonly>
+
+            <p class="security-text">Your access code will expire after the selected duration. This is a security measure to prevent misusing Aviator Predictor.</p>
+            
+            <a href="#" class="purchase-button">Purchase Now ➡️</a>
+        </div>
+        <p class="footer-text">New to Aviator Predictor? Watch videos of people using it. <a href="#">Click here.</a></p>
+    </div>
+
+    <script>
+        const hourButtons = document.querySelectorAll('.duration-button');
+        const paymentAmountInput = document.getElementById('paymentAmount');
+
+        const prices = {
+            '1hour': 'Sh. 975',
+            '3hours': 'Sh. 1825',
+            '6hours': 'Sh. 2500'
+        };
+
+        hourButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                hourButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to the clicked button
+                button.classList.add('active');
+
+                // Update the payment amount based on the button's ID
+                paymentAmountInput.value = prices[button.id];
+            });
+        });
+    </script>
+</body>
+</html>
