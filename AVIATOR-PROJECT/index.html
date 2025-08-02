@@ -52,22 +52,24 @@
             margin: 10px 0;
             width: 300px;
             border: 1px solid #334455;
-            text-align: left;
+            text-align: center; /* Center content horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card .aviator-logo {
+            height: 120px; /* Adjust size as needed */
+            width: auto;
+            margin-bottom: 15px; /* Spacing between logo and text */
         }
         .card h2 {
             font-size: 20px;
-            margin: 0 0 10px 0;
-            display: flex;
-            align-items: center;
-        }
-        .card img {
-            height: 40px;
-            margin-right: 10px;
+            margin: 0;
         }
         .card p {
             font-size: 14px;
             color: #a0a0a0;
-            margin: 0;
+            margin-top: 10px;
         }
         .note {
             background-color: #1c2738;
@@ -106,10 +108,8 @@
         <p class="subtitle">Note that the algorithm may have some differences for each site, please pick the right site.</p>
 
         <div class="card">
-            <h2>
-                <img src="logo.png" alt="Aviator Logo">
-                Aviator
-            </h2>
+            <img class="aviator-logo" src="logo.png" alt="Aviator Logo">
+            <h2>Aviator</h2>
             <p>If you can dream it, you can win it. Click here to get aviator predictions. Win big!</p>
         </div>
 
