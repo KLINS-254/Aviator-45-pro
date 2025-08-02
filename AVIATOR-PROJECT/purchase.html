@@ -14,6 +14,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
             min-height: 100vh;
         }
         .header {
@@ -23,7 +24,6 @@
             box-sizing: border-box;
             display: flex;
             align-items: center;
-            margin-bottom: 50px;
         }
         .header img {
             height: 30px;
@@ -34,69 +34,66 @@
             margin: 0;
             font-weight: normal;
         }
-        .content {
+        .main-content {
             text-align: center;
             width: 90%;
             max-width: 500px;
+            padding: 20px;
         }
         .title {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .subtitle {
             color: #a0a0a0;
-            margin-bottom: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
         }
-        .duration-options {
+        .options-container {
+            background-color: #1c2738;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .duration-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 20px;
         }
         .duration-button {
-            background-color: #2e3b4d;
+            background-color: #3b506b;
             color: #ffffff;
-            border: 1px solid #334455;
+            border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            width: 30%;
-            font-weight: bold;
+            font-size: 14px;
+            transition: background-color 0.3s;
         }
         .duration-button.active {
             background-color: #2e8b57;
-            border-color: #2e8b57;
         }
         .duration-button:hover {
-            background-color: #3cb371;
-            border-color: #3cb371;
-        }
-        .payment-section {
-            margin-bottom: 20px;
-        }
-        .payment-label {
-            display: block;
-            margin-bottom: 10px;
+            background-color: #556b82;
         }
         .payment-amount {
-            width: 100%;
             background-color: #121f30;
-            border: 1px solid #334455;
             color: #ffffff;
             padding: 10px;
             border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-            text-align: center;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 10px;
         }
-        .security-text {
+        .purchase-info {
             font-size: 12px;
             color: #a0a0a0;
-            margin-top: 15px;
             margin-bottom: 20px;
         }
         .purchase-button {
-            width: 250px;
+            width: 100%;
             padding: 15px;
             border: none;
             border-radius: 8px;
@@ -105,18 +102,42 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            text-decoration: none;
-            display: block;
-            margin: 0 auto;
         }
-        .footer-text {
-            margin-top: 30px;
+        .purchase-button:hover {
+            background-color: #3cb371;
+        }
+        .video-link-section {
+            margin-top: 20px;
+        }
+        .video-link {
+            color: #ffffff;
             font-size: 14px;
-            color: #a0a0a0;
         }
-        .footer-text a {
+        .video-link a {
             color: #2e8b57;
             text-decoration: none;
+        }
+        .video-container {
+            display: none; /* Hidden by default */
+            width: 100%;
+            max-width: 600px;
+        }
+        .video-container video {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .video-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .close-button {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -126,45 +147,67 @@
         <h1>Aviator Predictor</h1>
     </div>
 
-    <div class="content">
+    <div id="mainContent" class="main-content">
         <h2 class="title">Access Aviator Odds</h2>
         <p class="subtitle">Purchase your access code to unlock Aviator Predictor. Choose the number of hours your code will be active.</p>
 
-        <label>Select Duration</label>
-        <div class="duration-options">
-            <button class="duration-button active" id="1hour">1 Hour</button>
-            <button class="duration-button" id="3hours">3 Hours</button>
-            <button class="duration-button" id="6hours">6 Hours</button>
+        <div class="options-container">
+            <p>Select Duration</p>
+            <div class="duration-container">
+                <button class="duration-button active" data-hours="1" data-price="975">1 Hour</button>
+                <button class="duration-button" data-hours="3" data-price="2100">3 Hours</button>
+                <button class="duration-button" data-hours="6" data-price="3500">6 Hours</button>
+            </div>
+            <p>Payment Amount:</p>
+            <div id="paymentAmount" class="payment-amount">Sh. 975</div>
+            <p class="purchase-info">Your access code will expire after the selected duration. This is a security measure to prevent misusing Aviator Predictor.</p>
+            <button class="purchase-button">Purchase</button>
         </div>
-
-        <div class="payment-section">
-            <label class="payment-label">Payment Amount:</label>
-            <input type="text" id="paymentAmount" class="payment-amount" value="Sh. 975" readonly>
+        <div class="video-link-section">
+            <p class="video-link">New to Aviator Predictor? Watch videos of people using it. <a href="#" id="watchVideoLink">Click here.</a></p>
         </div>
-
-        <p class="security-text">Your access code will expire after the selected duration. This is a security measure to prevent misusing Aviator Predictor.</p>
-        
-        <a href="payment_confirmation.html" class="purchase-button">Purchase</a>
-
-        <p class="footer-text">New to Aviator Predictor? Watch videos of people using it. <a href="#">Click here.</a></p>
+    </div>
+    
+    <div id="videoContainer" class="video-container">
+        <video id="myVideo" controls>
+            <source src="VID-20250717-WA0104.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-controls">
+            <button id="closeVideo" class="close-button">Go Back</button>
+        </div>
     </div>
 
     <script>
-        const hourButtons = document.querySelectorAll('.duration-button');
-        const paymentAmountInput = document.getElementById('paymentAmount');
+        const durationButtons = document.querySelectorAll('.duration-button');
+        const paymentAmountDiv = document.getElementById('paymentAmount');
+        const watchVideoLink = document.getElementById('watchVideoLink');
+        const mainContent = document.getElementById('mainContent');
+        const videoContainer = document.getElementById('videoContainer');
+        const myVideo = document.getElementById('myVideo');
+        const closeVideoButton = document.getElementById('closeVideo');
 
-        const prices = {
-            '1hour': 'Sh. 975',
-            '3hours': 'Sh. 1825',
-            '6hours': 'Sh. 2500'
-        };
-
-        hourButtons.forEach(button => {
+        durationButtons.forEach(button => {
             button.addEventListener('click', () => {
-                hourButtons.forEach(btn => btn.classList.remove('active'));
+                durationButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                paymentAmountInput.value = prices[button.id];
+                const price = button.getAttribute('data-price');
+                paymentAmountDiv.textContent = `Sh. ${price}`;
             });
+        });
+
+        watchVideoLink.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the link from jumping the page
+            mainContent.style.display = 'none';
+            videoContainer.style.display = 'block';
+            myVideo.play();
+        });
+
+        closeVideoButton.addEventListener('click', () => {
+            myVideo.pause();
+            myVideo.currentTime = 0; // Rewind the video
+            videoContainer.style.display = 'none';
+            mainContent.style.display = 'block';
         });
     </script>
 </body>
