@@ -105,7 +105,7 @@
         <input type="password" id="unlockCodeInput" class="input-field" placeholder="Enter Unlock Code">
         <span id="errorMessage" class="error-message"></span>
         <button id="unlockButton" class="unlock-button">Unlock Odds</button>
-        <p class="link-text">Don't have a code? <a href="#">Get it here</a></p>
+        <p class="link-text">Don't have a code? <a href="purchase.html">Get it here</a></p>
     </div>
 
     <script>
@@ -115,13 +115,11 @@
 
         unlockButton.addEventListener('click', () => {
             const code = unlockCodeInput.value.trim();
-            
-            errorMessage.textContent = ''; // Clear previous error messages
-
+            errorMessage.textContent = '';
             if (code === '') {
-                errorMessage.textContent = 'you mus enter an unlock code!';
+                errorMessage.textContent = 'You must enter an Unlock code!';
             } else if (code !== 'TIMO') {
-                errorMessage.textContent = 'please enter a valid Unlock code!';
+                errorMessage.textContent = 'Please enter a valid Unlock code!';
             } else {
                 window.location.href = 'package_info.html';
             }
