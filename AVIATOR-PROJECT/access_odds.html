@@ -118,17 +118,17 @@
             errorMessage.textContent = '';
             
             if (code === '') {
-                errorMessage.textContent = 'you mus enter an unlock code!';
+                errorMessage.textContent = 'You must enter an unlock code!';
                 setTimeout(() => {
                     errorMessage.textContent = '';
                 }, 2300);
             } else if (code !== 'TIMO') {
-                errorMessage.textContent = 'please enter a valid name!';
+                errorMessage.textContent = 'please enter a valid Unlock code!';
                 setTimeout(() => {
                     errorMessage.textContent = '';
                 }, 2300);
             } else {
-                // Correct code entered, change button text and simulate a check
+                // Code entered, change button text and simulate a check
                 unlockButton.textContent = 'Checking code...';
                 unlockButton.disabled = true;
 
