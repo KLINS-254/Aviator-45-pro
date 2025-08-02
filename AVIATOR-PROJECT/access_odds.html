@@ -15,7 +15,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            min-height: 100vh; /* Use min-height for full-page layout */
+            min-height: 100vh;
         }
         .header {
             width: 100%;
@@ -24,7 +24,7 @@
             box-sizing: border-box;
             display: flex;
             align-items: center;
-            margin-bottom: 50px; /* Added margin to push content down */
+            margin-bottom: 50px;
         }
         .header img {
             height: 30px;
@@ -57,11 +57,18 @@
             color: #ffffff;
             font-size: 16px;
             box-sizing: border-box;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-align: center;
         }
         .input-field::placeholder {
             color: #667788;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            height: 20px; /* Reserve space to prevent layout shift */
+            margin-bottom: 10px;
+            display: block; /* To ensure it takes up space */
         }
         .unlock-button {
             width: 100%;
@@ -89,18 +96,35 @@
     </style>
 </head>
 <body>
-
     <div class="header">
-        <img src="jogo.png" alt="Aviator Predictor Logo">
+        <img src="logov.png" alt="Aviator Predictor Logo">
         <h1>Aviator Predictor</h1>
     </div>
-
     <div class="content">
         <h2 class="title">Access Odds for Aviator</h2>
-        <input type="text" class="input-field" placeholder="Enter Unlock Code">
-        <button class="unlock-button">Unlock Odds</button>
+        <input type="text" id="unlockCodeInput" class="input-field" placeholder="Enter Unlock Code">
+        <span id="errorMessage" class="error-message"></span>
+        <button id="unlockButton" class="unlock-button">Unlock Odds</button>
         <p class="link-text">Don't have a code? <a href="#">Get it here</a></p>
     </div>
 
+    <script>
+        const unlockButton = document.getElementById('unlockButton');
+        const unlockCodeInput = document.getElementById('unlockCodeInput');
+        const errorMessage = document.getElementById('errorMessage');
+
+        unlockButton.addEventListener('click', () => {
+            const code = unlockCodeInput.value.trim();
+
+            if (code === '') {
+                errorMessage.textContent = 'you must enter an unlock code!';
+            } else if (code !== 'TIMO') {
+                errorMessage.textContent = 'please enter a valid Unlock code!';
+            } else {
+                // Correct code, redirect to the new page
+                window.location.href = 'package_info.html';
+            }
+        });
+    </script>
 </body>
 </html>
