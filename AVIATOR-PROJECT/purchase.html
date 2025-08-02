@@ -48,12 +48,6 @@
             color: #a0a0a0;
             margin-bottom: 30px;
         }
-        .card {
-            background-color: #1c2738;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: left;
-        }
         .duration-options {
             display: flex;
             justify-content: space-between;
@@ -76,6 +70,9 @@
         .duration-button:hover {
             background-color: #3cb371;
             border-color: #3cb371;
+        }
+        .payment-section {
+            margin-bottom: 20px;
         }
         .payment-label {
             display: block;
@@ -133,21 +130,22 @@
         <h2 class="title">Access Aviator Odds</h2>
         <p class="subtitle">Purchase your access code to unlock Aviator Predictor. Choose the number of hours your code will be active.</p>
 
-        <div class="card">
-            <label>Select Duration</label>
-            <div class="duration-options">
-                <button class="duration-button active" id="1hour">1 Hour</button>
-                <button class="duration-button" id="3hours">3 Hours</button>
-                <button class="duration-button" id="6hours">6 Hours</button>
-            </div>
+        <label>Select Duration</label>
+        <div class="duration-options">
+            <button class="duration-button active" id="1hour">1 Hour</button>
+            <button class="duration-button" id="3hours">3 Hours</button>
+            <button class="duration-button" id="6hours">6 Hours</button>
+        </div>
 
+        <div class="payment-section">
             <label class="payment-label">Payment Amount:</label>
             <input type="text" id="paymentAmount" class="payment-amount" value="Sh. 975" readonly>
-
-            <p class="security-text">Your access code will expire after the selected duration. This is a security measure to prevent misusing Aviator Predictor.</p>
-            
-            <a href="#" class="purchase-button">Purchase Now ➡️</a>
         </div>
+
+        <p class="security-text">Your access code will expire after the selected duration. This is a security measure to prevent misusing Aviator Predictor.</p>
+        
+        <a href="#" class="purchase-button">Purchase</a>
+
         <p class="footer-text">New to Aviator Predictor? Watch videos of people using it. <a href="#">Click here.</a></p>
     </div>
 
@@ -163,13 +161,8 @@
 
         hourButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 hourButtons.forEach(btn => btn.classList.remove('active'));
-
-                // Add active class to the clicked button
                 button.classList.add('active');
-
-                // Update the payment amount based on the button's ID
                 paymentAmountInput.value = prices[button.id];
             });
         });
