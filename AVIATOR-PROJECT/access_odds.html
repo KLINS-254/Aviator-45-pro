@@ -118,7 +118,7 @@
             errorMessage.textContent = '';
             
             if (code === '') {
-                errorMessage.textContent = 'you mus enter an unlock code!';
+                errorMessage.textContent = 'You must enter an unlock code!';
                 setTimeout(() => {
                     errorMessage.textContent = '';
                 }, 2300);
@@ -131,7 +131,7 @@
                 setTimeout(() => {
                     if (code !== 'TIMO') {
                         // Handle incorrect code
-                        errorMessage.textContent = 'please enter a valid name!';
+                        errorMessage.textContent = 'Please enter a valid name!';
                         setTimeout(() => {
                             errorMessage.textContent = '';
                         }, 2300);
