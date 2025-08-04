@@ -42,7 +42,7 @@
             text-align: center;
             width: 100%;
             max-width: 500px;
-            padding: 80px 20px 20px; /* Adjust top padding for fixed header */
+            padding: 80px 20px 20px;
             box-sizing: border-box;
         }
         .title {
@@ -72,6 +72,9 @@
             font-size: 16px;
             color: #a0a0a0;
         }
+        .steps li span {
+            color: #ffffff;
+        }
         .steps li:before {
             content: counter(my-counter);
             counter-increment: my-counter;
@@ -92,11 +95,6 @@
             margin-top: 30px;
             text-align: center;
         }
-        .input-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
         .input-group input {
             width: 100%;
             padding: 10px;
@@ -106,6 +104,9 @@
             color: #ffffff;
             border-radius: 5px;
             font-size: 16px;
+        }
+        .input-group input::placeholder {
+            color: #ffffff;
         }
         .generate-button {
             width: 100%;
@@ -137,12 +138,12 @@
             Always confirm the Phone number and amount before completing the transaction. (Amount: Sh. 975, Till Number: 6548089)
         </div>
         <ol class="steps">
-            <li>Go to M-Pesa menu<br>Open your M-Pesa menu on your phone</li>
-            <li>Select "Lipa na M-Pesa"<br>Choose "Buy Goods and Services" option</li>
-            <li>Enter Till Number: 6548089<br>Input the merchant's Till number 6548089</li>
-            <li>Enter Amount and Confirm<br>Input the payment amount, enter your M-Pesa PIN, and confirm the transaction</li>
-            <li>Keep Confirmation SMS<br>You'll receive a confirmation SMS. Keep this as proof of payment.</li>
-            <li>Paste the Confirmation Code<br>Paste the confirmation code you received to unlock the code.</li>
+            <li>Go to M-Pesa menu<br><span>Open your M-Pesa menu on your phone</span></li>
+            <li>Select "Lipa na M-Pesa"<br><span>Choose "Buy Goods and Services" option</span></li>
+            <li>Enter Till Number: 6548089<br><span>Input the merchant's Till number 6548089</span></li>
+            <li>Enter Amount and Confirm<br><span>Input the payment amount, enter your M-Pesa PIN, and confirm the transaction</span></li>
+            <li>Keep Confirmation SMS<br><span>You'll receive a confirmation SMS. Keep this as proof of payment.</span></li>
+            <li>Paste the Confirmation Code<br><span>Paste the confirmation code you received to unlock the code.</span></li>
         </ol>
         <div class="input-group">
             <input type="text" id="mpesaCode" placeholder="Mpesa Code">
@@ -153,8 +154,7 @@
     <script>
         const generateButton = document.getElementById('generateButton');
         generateButton.addEventListener('click', () => {
-            // This will now redirect to the package information page.
-            window.location.href = 'package_info.html'; 
+            window.location.href = 'package_info.html';
         });
     </script>
 </body>
