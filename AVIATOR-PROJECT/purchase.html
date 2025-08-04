@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Access Code</title>
+    <title>Payment Confirmation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #0c1524;
             color: #ffffff;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
+            box-sizing: border-box;
         }
         .header {
             width: 100%;
@@ -24,6 +25,9 @@
             box-sizing: border-box;
             display: flex;
             align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
         .header img {
             height: 30px;
@@ -36,63 +40,74 @@
         }
         .main-content {
             text-align: center;
-            width: 90%;
+            width: 100%;
             max-width: 500px;
-            padding: 20px;
+            padding: 80px 20px 20px;
+            box-sizing: border-box;
         }
         .title {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .subtitle {
-            color: #a0a0a0;
-            font-size: 14px;
             margin-bottom: 20px;
         }
-        .options-container {
-            background-color: #1c2738;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .duration-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .duration-button {
-            background-color: #3b506b;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
-        .duration-button.active {
-            background-color: #2e8b57;
-        }
-        .duration-button:hover {
-            background-color: #556b82;
-        }
-        .payment-amount {
-            background-color: #121f30;
+        .warning {
+            background-color: #7b2121;
             color: #ffffff;
             padding: 10px;
             border-radius: 5px;
             text-align: left;
             font-size: 14px;
-            margin-bottom: 10px;
-        }
-        .purchase-info {
-            font-size: 12px;
-            color: #a0a0a0;
             margin-bottom: 20px;
         }
-        .purchase-button {
+        .steps {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            counter-reset: my-counter;
+        }
+        /* Updated style for list items */
+        .steps li {
+            position: relative;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            font-size: 16px;
+            color: #ffffff; /* This is now white */
+        }
+        .steps li:before {
+            content: counter(my-counter);
+            counter-increment: my-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #1c2738;
+            color: #ffffff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .input-group {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #3b506b;
+            background-color: #1c2738;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        /* New style to make placeholder text white */
+        .input-group input::placeholder {
+            color: #ffffff;
+        }
+        .generate-button {
             width: 100%;
             padding: 15px;
             border: none;
@@ -102,42 +117,10 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-        }
-        .purchase-button:hover {
-            background-color: #3cb371;
-        }
-        .video-link-section {
             margin-top: 20px;
         }
-        .video-link {
-            color: #ffffff;
-            font-size: 14px;
-        }
-        .video-link a {
-            color: #2e8b57;
-            text-decoration: none;
-        }
-        .video-container {
-            display: none; /* Hidden by default */
-            width: 100%;
-            max-width: 600px;
-        }
-        .video-container video {
-            width: 100%;
-            border-radius: 8px;
-        }
-        .video-controls {
-            margin-top: 10px;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .close-button {
-            padding: 10px 20px;
-            background-color: #e74c3c;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .generate-button:hover {
+            background-color: #3cb371;
         }
     </style>
 </head>
@@ -147,72 +130,30 @@
         <h1>Aviator Predictor</h1>
     </div>
 
-    <div id="mainContent" class="main-content">
-        <h2 class="title">Access Aviator Odds</h2>
-        <p class="subtitle">Purchase your access code to unlock Aviator Predictor. Choose the number of hours your code will be active.</p>
-
-        <div class="options-container">
-            <p>Select Duration</p>
-            <div class="duration-container">
-                <button class="duration-button active" data-hours="1" data-price="975">1 Hour</button>
-                <button class="duration-button" data-hours="3" data-price="2100">3 Hours</button>
-                <button class="duration-button" data-hours="6" data-price="3500">6 Hours</button>
-            </div>
-            <p>Payment Amount:</p>
-            <div id="paymentAmount" class="payment-amount">Sh. 975</div>
-            <p class="purchase-info">Your access code will expire after the selected duration. This is a security measure to prevent misusing Aviator Predictor.</p>
-            <button id="purchaseButton" class="purchase-button">Purchase</button>
+    <div class="main-content">
+        <h2 class="title">Payment Confirmation</h2>
+        <p class="subtitle" style="color: #ffffff;">Follow these simple steps to buy goods using M-Pesa</p>
+        <div class="warning">
+            Always confirm the Phone number and amount before completing the transaction. (Amount: Sh. 975, Till Number: 6548089)
         </div>
-        <div class="video-link-section">
-            <p class="video-link">New to Aviator Predictor? Watch videos of people using it. <a href="#" id="watchVideoLink">Click here.</a></p>
-        </div>
-    </div>
-    
-    <div id="videoContainer" class="video-container">
-        <video id="myVideo" controls preload="none">
-            <source src="VID-20250717-WA0104.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-controls">
-            <button id="closeVideo" class="close-button">Go Back</button>
+        <ol class="steps">
+            <li>Go to M-Pesa menu<br>Open your M-Pesa menu on your phone</li>
+            <li>Select "Lipa na M-Pesa"<br>Choose "Buy Goods and Services" option</li>
+            <li>Enter Till Number: 6548089<br>Input the merchant's Till number 6548089</li>
+            <li>Enter Amount and Confirm<br>Input the payment amount, enter your M-Pesa PIN, and confirm the transaction</li>
+            <li>Keep Confirmation SMS<br>You'll receive a confirmation SMS. Keep this as proof of payment.</li>
+            <li>Paste the Confirmation Code<br>Paste the confirmation code you received to unlock the code.</li>
+        </ol>
+        <div class="input-group">
+            <input type="text" id="mpesaCode" placeholder="Mpesa Code">
+            <button id="generateButton" class="generate-button">Generate Unlock Code</button>
         </div>
     </div>
 
     <script>
-        const durationButtons = document.querySelectorAll('.duration-button');
-        const paymentAmountDiv = document.getElementById('paymentAmount');
-        const watchVideoLink = document.getElementById('watchVideoLink');
-        const mainContent = document.getElementById('mainContent');
-        const videoContainer = document.getElementById('videoContainer');
-        const myVideo = document.getElementById('myVideo');
-        const closeVideoButton = document.getElementById('closeVideo');
-        const purchaseButton = document.getElementById('purchaseButton');
-
-        durationButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                durationButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const price = button.getAttribute('data-price');
-                paymentAmountDiv.textContent = `Sh. ${price}`;
-            });
-        });
-
-        watchVideoLink.addEventListener('click', (event) => {
-            event.preventDefault(); 
-            mainContent.style.display = 'none';
-            videoContainer.style.display = 'block';
-            myVideo.play();
-        });
-
-        closeVideoButton.addEventListener('click', () => {
-            myVideo.pause();
-            myVideo.currentTime = 0; 
-            videoContainer.style.display = 'none';
-            mainContent.style.display = 'block';
-        });
-
-        purchaseButton.addEventListener('click', () => {
-            window.location.href = 'payment_confirmation.html';
+        const generateButton = document.getElementById('generateButton');
+        generateButton.addEventListener('click', () => {
+            window.location.href = 'package_info.html'; 
         });
     </script>
 </body>
