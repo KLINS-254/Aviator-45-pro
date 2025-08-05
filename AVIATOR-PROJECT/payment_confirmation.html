@@ -145,7 +145,7 @@
         <p class="subtitle">Follow these simple steps to buy goods using M-Pesa</p>
 
         <div class="warning-box">
-            Always confirm the till number and amount before completing the transaction. (Amount: Sh. 975, Till Number: 6936557)
+            Always confirm the till number and amount before completing the transaction. (Amount: Sh. 975, Till Number:6936557)
         </div>
 
         <div class="steps-container">
@@ -204,29 +204,37 @@
         const generateButton = document.getElementById('generateButton');
         const mpesaCodeInput = document.getElementById('mpesaCodeInput');
         const errorMessage = document.getElementById('errorMessage');
+        
+        // Hardcode a valid M-Pesa code for demonstration
+        const correctCode = 'ABCDE12345'; // You can change this to any code you want to simulate
 
         generateButton.addEventListener('click', () => {
             const code = mpesaCodeInput.value.trim();
             errorMessage.textContent = ''; // Clear any previous message
 
             if (code === '') {
-                errorMessage.textContent = 'Please enter a valid Mpesa code';
+                // Case 1: Empty input
+                errorMessage.textContent = 'Please enter code to continue';
                 setTimeout(() => {
                     errorMessage.textContent = '';
-                }, 2300); // Disappear after 2.3 seconds
-            } else {
-                // Change button text and disable it
+                }, 2300);
+            } else if (code === correctCode) {
+                // Case 2: Correct code entered
                 generateButton.textContent = 'Generating Unlock code...';
                 generateButton.disabled = true;
                 
-                // Simulate a delay and then change the button back
+                // Simulate a delay before redirecting
                 setTimeout(() => {
-                    generateButton.textContent = 'Generate Unlock Code';
-                    generateButton.disabled = false;
-                }, 3000); // Wait 3 seconds before resetting
+                    window.location.href = 'package_info.html';
+                }, 3000);
+            } else {
+                // Case 3: Incorrect code entered
+                errorMessage.textContent = 'Please enter correct code to continue';
+                setTimeout(() => {
+                    errorMessage.textContent = '';
+                }, 2300);
             }
         });
     </script>
 </body>
-                                                                                        </html>
-                                                                                        
+</html>
